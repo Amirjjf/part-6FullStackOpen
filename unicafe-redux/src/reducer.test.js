@@ -1,23 +1,35 @@
-const initialState = {
-  good: 0,
-  ok: 0,
-  bad: 0
-}
+import deepFreeze from 'deep-freeze'
+import counterReducer from './reducer'
 
-const counterReducer = (state = initialState, action) => {
-  console.log(action)  // This helps debug actions
-  switch (action.type) {
-    case 'GOOD':
-      return { ...state, good: state.good + 1 }
-    case 'OK':
-      return { ...state, ok: state.ok + 1 }
-    case 'BAD':
-      return { ...state, bad: state.bad + 1 }
-    case 'ZERO':
-      return initialState
-    default:
-      return state
+describe('unicafe reducer', () => {
+  const initialState = {
+    good: 0,
+    ok: 0,
+    bad: 0
   }
-}
 
-export default counterReducer
+  test('should return a proper initial state when called with undefined state', () => {
+    const state = {}
+    const action = {
+      type: 'DO_NOTHING'
+    }
+
+    const newState = counterReducer(undefined, action)
+    expect(newState).toEqual(initialState)
+  })
+
+  test('good is incremented', () => {
+    const action = {
+      type: 'GOOD'
+    }
+    const state = initialState
+
+    deepFreeze(state)
+    const newState = counterReducer(state, action)
+    expect(newState).toEqual({
+      good: 1,
+      ok: 0,
+      bad: 0
+    })
+  })
+})
