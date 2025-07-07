@@ -2,8 +2,18 @@ import AnecdoteForm from './components/AnecdoteForm.jsx';
 import AnecdoteList from './components/AnecdoteList.jsx';
 import Filter from './components/Filter.jsx'; 
 import Notification from './components/Notification.jsx';
+import { initializeAnecdotes } from './reducers/anecdoteReducer.js';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(initializeAnecdotes());
+  }, [dispatch]);
+
   return (
     <div>
       <h2>Anecdotes</h2>
