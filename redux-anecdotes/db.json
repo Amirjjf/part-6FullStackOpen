@@ -3,7 +3,7 @@
     {
       "content": "If it hurts, do it more often",
       "id": "47145",
-      "votes": 2
+      "votes": 8
     },
     {
       "content": "Adding manpower to a late software project makes it later!",
@@ -33,17 +33,47 @@
     {
       "id": "1fec",
       "content": "Who defines the Truth?",
-      "votes": 4
+      "votes": 20
     },
     {
       "id": "cfe8",
       "content": "It is no nation we inhabit but a language",
-      "votes": 1
+      "votes": 4
     },
     {
       "id": "6c69",
       "content": "Our native tongue is out true fatherland",
+      "votes": 2
+    },
+    {
+      "id": "f4b4",
+      "content": "My fatherland was stolen from me...",
+      "votes": 1
+    },
+    {
+      "id": "2f55",
+      "content": "Here is a new Note",
+      "votes": 1
+    },
+    {
+      "id": "283b",
+      "content": "Monkeys are smart",
+      "votes": 1
+    },
+    {
+      "id": "bc88",
+      "content": "Hello there",
       "votes": 0
+    },
+    {
+      "id": "4e06",
+      "content": "This is a Test note",
+      "votes": 0
+    },
+    {
+      "id": "086e",
+      "content": "Final test note",
+      "votes": 1
     }
   ]
 }

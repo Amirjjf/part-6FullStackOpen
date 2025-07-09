@@ -1,25 +1,37 @@
-import AnecdoteForm from './components/AnecdoteForm.jsx';
-import AnecdoteList from './components/AnecdoteList.jsx';
-import Filter from './components/Filter.jsx'; 
-import Notification from './components/Notification.jsx';
-import { initializeAnecdotes } from './reducers/anecdoteReducer.js';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import AnecdoteForm from "./components/AnecdoteForm.jsx";
+import AnecdoteList from "./components/AnecdoteList.jsx";
+import Filter from "./components/Filter.jsx";
+import Notification from "./components/Notification.jsx";
+import { useQuery } from "@tanstack/react-query";
+import noteService from "./services/requests.js";
 
 const App = () => {
+  const {
+    data: anecdotes,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["anecdotes"],
+    queryFn: noteService.getAll,
+    retry: false,
+  });
 
-  const dispatch = useDispatch();
+  if (isLoading) {
+    return <div>Loading anecdotes...</div>;
+  }
 
-  useEffect(() => {
-    dispatch(initializeAnecdotes());
-  }, [dispatch]);
+  if (isError) {
+    return (
+      <div>Error loading anecdotes. Problem connecting to the server.</div>
+    );
+  }
 
   return (
     <div>
       <h2>Anecdotes</h2>
       <Notification />
       <Filter />
-      <AnecdoteList /> 
+      <AnecdoteList anecdotes={anecdotes} />
       <AnecdoteForm />
     </div>
   );

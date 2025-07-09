@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+/*import { createSlice } from "@reduxjs/toolkit";
 
 const notificationSlice = createSlice({
   name: "notification",
@@ -23,4 +23,4 @@ export const setNotificationAsync = (message, duration) => {
 };
 
 export const { setNotification, clearNotification } = notificationSlice.actions;
-export default notificationSlice.reducer;
+export default notificationSlice.reducer; */
